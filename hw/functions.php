@@ -23,6 +23,23 @@
 		return true;
 	}
 
+    function editArticle(int $id, string $title, string $content) : bool{
+        $articles = getArticles();
+
+        if(!isset($articles[$id])){
+            return false;
+        }
+
+        $articles[$id] = [
+            'id' => $id,
+            'title' => $title,
+            'content' => $content
+        ];
+
+        saveArticles($articles);
+        return true;
+    }
+
 	function removeArticle(int $id) : bool{
 		$articles = getArticles();
 
