@@ -1,6 +1,6 @@
 <?php
 
-	include_once('functions.php');
+	include_once('model/articles.php');
   $id = (int)($_GET['id'] ?? '');
 
   removeArticle($id);
