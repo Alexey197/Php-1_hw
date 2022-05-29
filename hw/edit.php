@@ -4,6 +4,7 @@ include_once('model/articles.php');
 include_once('model/visits.php');
 
 addVisitLog();
+
 $articles = getArticles();
 $strId = $_GET['id'] ?? '';
 $id = (int)$strId;

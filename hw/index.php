@@ -1,6 +1,9 @@
 <?php
 
 	include_once('model/articles.php');
+  include_once('model/visits.php');
+
+  addVisitLog();
 	$articles = getArticles();
 
 ?>
