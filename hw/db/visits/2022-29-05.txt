@@ -4,3 +4,5 @@
 {"dt":"17:42:58","ip":"::1","uri":"\/php-lesson1-src\/hw\/article.php?id=3","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/index.php"}
 {"dt":"17:43:02","ip":"::1","uri":"\/php-lesson1-src\/hw\/edit.php?id=3","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/article.php?id=3"}
 {"dt":"17:43:04","ip":"::1","uri":"\/php-lesson1-src\/hw\/index.php","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/edit.php?id=3"}
+{"dt":"21:38:03","ip":"::1","uri":"\/php-lesson1-src\/hw\/article.php?id=1","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/index.php"}
+{"dt":"21:38:05","ip":"::1","uri":"\/php-lesson1-src\/hw\/index.php","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/article.php?id=1"}
