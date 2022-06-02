@@ -4,12 +4,30 @@ function checkVisitName(string $name) : bool {
     return !!preg_match('/^\d{4}\-\d{2}\-\d{2}\.txt$/', $name);
 }
 
+function hasVisitsDay(string $dt) : bool {
+    return checkVisitName($dt) && file_exists("db/visits/$dt");
+}
+
 function getVisitsDay() : array {
     $files = scandir("db/visits");
 
     return array_filter($files, function ($file){
         return is_file("db/visits/$file") && checkVisitName($file);
     });
+}
+
+function getVisits(string $dt) : array{
+    $lines = file("db/visits/$dt");
+//    var_dump($lines);
+
+//    return array_map(function($line){
+//        $log = json_decode(rtrim($line), true);
+//        $log['isDanger'] = !isValidUrl($log['uri']);
+//        return $log;
+//    }, $lines);
+    return array_map(function ($line) {
+        return json_decode(rtrim($line), true);
+    }, $lines);
 }
 
 function addVisitLog() : bool {
