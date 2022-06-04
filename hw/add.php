@@ -1,6 +1,10 @@
 <?php
 
-	include_once('model/articles.php');
+include_once('model/articles.php');
+include_once('model/visits.php');
+
+addVisitLog();
+
 $isSend = false;
 $err = '';
 

@@ -1,6 +1,10 @@
 <?php
 
 	include_once('model/articles.php');
+  include_once('model/visits.php');
+
+  addVisitLog();
+
   $id = (int)($_GET['id'] ?? '');
 
   removeArticle($id);
