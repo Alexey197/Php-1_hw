@@ -15,6 +15,22 @@ else{
 }
 
 ?>
+
+  <style>
+    table, td {
+      border: 1px solid #000;
+    }
+
+    td {
+      padding: 10px;
+      border-collapse: collapse;
+    }
+
+    .danger{
+      color: red;
+    }
+  </style>
+
 <? if ($showDay) : ?>
     <? if($e404): ?>
       <h1>Нет таких логов</h1>
@@ -26,13 +42,15 @@ else{
           <th>Ip</th>
           <th>URI</th>
           <th>Referer</th>
+          <th>IsDanger</th>
         </tr>
       <? foreach ($visits as $day): ?>
-        <tr>
+        <tr class="<?=$day['isDanger'] ? 'danger' : ''?>">
           <td><?=$day['dt']?></td>
           <td><?=$day['ip']?></td>
           <td><?=$day['uri']?></td>
           <td><?=$day['referer']?></td>
+          <td><?=$day['isDanger'] ? 1 : 0?></td>
         </tr>
       <? endforeach;?>
     </table>

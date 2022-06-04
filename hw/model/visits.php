@@ -16,17 +16,17 @@ function getVisitsDay() : array {
     });
 }
 
+function isValidUrl(string $url) : bool{
+    return !!preg_match('/^[aA-zZ0-9-_\/\?\.=&]*$/', $url);
+}
+
 function getVisits(string $dt) : array{
     $lines = file("db/visits/$dt");
-//    var_dump($lines);
 
-//    return array_map(function($line){
-//        $log = json_decode(rtrim($line), true);
-//        $log['isDanger'] = !isValidUrl($log['uri']);
-//        return $log;
-//    }, $lines);
     return array_map(function ($line) {
-        return json_decode(rtrim($line), true);
+        $log = json_decode(rtrim($line), true);
+        $log['isDanger'] = !isValidUrl($log['uri']);
+        return $log;
     }, $lines);
 }
 

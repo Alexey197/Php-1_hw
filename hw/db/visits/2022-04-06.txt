@@ -1,0 +1,5 @@
+{"dt":"06:34:30","ip":"::1","uri":"\/php-lesson1-src\/hw\/article.php?id=4","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/index.php"}
+{"dt":"06:34:50","ip":"::1","uri":"\/php-lesson1-src\/hw\/article.php?id=m1mm.%27","referer":""}
+{"dt":"07:24:58","ip":"::1","uri":"\/php-lesson1-src\/hw\/index.php","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/article.php?id=m1mm.%27"}
+{"dt":"07:47:07","ip":"::1","uri":"\/php-lesson1-src\/hw\/article.php?id=2","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/index.php"}
+{"dt":"07:47:09","ip":"::1","uri":"\/php-lesson1-src\/hw\/index.php","referer":"http:\/\/localhost\/php-lesson1-src\/hw\/article.php?id=2"}
