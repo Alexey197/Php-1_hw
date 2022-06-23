@@ -1,0 +1,66 @@
+1. Разработать базу для многопользовательского блога по следующему описанию проекта.
+1.1. Пользователи регистрируются на сайте и могут писать статьи.
+1.2. Статьи должны отображаться на сайте после модерации. Статья содержит заголовок,
+контент и дату публикации.
+1.3. Также для статьи можно выбрать одну категорию и любое количество тегов. Категории и
+теги - простые смысловые обобщения, у которых есть название и url. Делать категории иерархическими не нужно.
+2. Настроить в базе связи между сущностями.
+3. Сочинить SQL-запросы, которые могут быть использованы на реальных страницах сайта.
+3.1. Главная страница
+3.1.1. Получение всех статей на главной странице. К каждой статье нужно прицепить
+данные о пользователе, который ещё написал. Сортируем так, чтобы самые свежие
+были вверху. Не более 20 статей.
+3.1.2. Получение списка всех категорий сайта
+3.2. Страница статьи вида article.php?id=[int]
+3.2.1. Получение статьи по id с добавлением данных о пользователе. 3.2.2. Получение категории статьи.
+3.2.3. Получение всех тегов статьи.
+3.3. Страница категории вида cat.php?url=[str] 3.3.1. Получение данных о категории по url. 3.3.2. Получение всех статей категории.
+3.4. Страница тега вида tag.php?url=[str] 3.4.1. Получение данных о теге по url. 3.4.2. Получение всех статей данного тега.
+3.5. Страница пользователя вида user.php?nic=[str] 3.5.1. Получение данных о пользователе по nic. 3.5.2. Получение всех статей данного пользователя.
+
+1.1
+SELECT articles.*, users.login, users.name FROM articles
+JOIN users USING(id_user)
+WHERE articles.status = 1
+ORDER BY dt_add DESC
+
+1.2
+SELECT * FROM cats ORDER BY title ASC
+
+2.1
+SELECT articles.*, users.login, users.name FROM articles
+JOIN users USING(id_user)
+WHERE articles.status = 1 AND id_article=1
+
+2.2
+SELECT * FROM cats WHERE id_cat = '1'
+
+2.3
+SELECT * FROM articles_tags
+JOIN tags USING(id_tag)
+WHERE id_article = 1
+
+3.1
+SELECT * FROM cats WHERE id_cat = 'osnovy-php'
+
+3.2
+SELECT * FROM articles
+WHERE id_cat = 1
+AND status = 1
+
+4.1
+SELECT * FROM tags WHERE url = 'osnovy-oop'
+
+4.2
+SELECT * FROM articles_tags
+JOIN articles USING(id_article)
+WHERE id_tag = (SELECT id_tag FROM tags WHERE url = 'osnovy-oop')
+AND STATUS = 1
+
+5.1
+SELECT * FROM users WHERE login = 'admin'
+
+5.2
+SELECT * FROM `articles`
+WHERE id_user = 1
+AND status = 1
